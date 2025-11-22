@@ -4,6 +4,7 @@ import { useState } from "react";
 import favorito from "../assets/favorito.svg";
 import favoritoRed from "../assets/favorito-red.svg";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 /**
  *Página de fichas individuales de animales.
@@ -69,16 +70,13 @@ function Fichas() {
               </h2>
             </div>
 
-            {/* Columna derecha → botón alineado a derecha */}
-            <div className="flex justify-end items-start">
-              <Link
-                to="/catalogo"
-                className="bg-[#E0E0E0] border border-black rounded-lg px-4 py-1 text-black font-semibold hover:bg-[#D5D5D5]"
-                aria-label="Volver al catálogo"
-              >
-                Volver
-              </Link>
-            </div>
+            {/* Columna derecha*/}
+            <Button
+              to="/catalogo"
+              className="bg-[#E0E0E0] border border-black text-black hover:bg-[#D5D5D5]"
+            >
+              Volver
+            </Button>
           </header>
 
           {/**Lista de datos */}

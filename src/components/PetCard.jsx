@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import favorito from "../assets/favorito.svg";
 import favoritoRed from "../assets/favorito-red.svg";
+import Button from "../components/Button";
 
 /**
  * Componente que conforma la tarjeta individual del catálogo
@@ -63,15 +64,13 @@ function PetCard({
         </p>
       </Link>
 
-      <Link
-        to={`/fichas`}
+      <Button
+        to="/fichas"
         state={animalData}
-        aria-label={`Ver ficha completa de ${nombre}`}
-        className="mt-2 inline-block bg-[#FF9800] border border-black rounded-lg px-2 py-[4px] text-black font-semibold hover:bg-[#F57C00]"
+        className="mt-2 bg-[#FF9800] border border-black text-black hover:bg-[#F57C00]"
       >
         Ver ficha
-      </Link>
-
+      </Button>
       {/* Botón Favorito */}
       <button
         type="button"
