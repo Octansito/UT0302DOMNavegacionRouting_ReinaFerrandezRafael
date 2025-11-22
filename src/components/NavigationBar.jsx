@@ -2,14 +2,21 @@ import { useState } from "react";
 import Logo from "../assets/Logo5.png";
 import menuIcon from "../assets/menu.png";
 import { NavLink } from "react-router-dom";
-
+/**
+ *
+ * Componente que engloba todos los elementos del menú de vanegación de la página web
+ */
 function NavigationBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-[#0C3C34] w-full relative">
+    <header className="bg-[#0C3C34] w-full relative" role="banner">
       {/* NAV PRINCIPAL */}
-      <nav className="w-full flex items-center justify-between px-6 h-[45px] sm:h-[60px] lg:h-[90px]">
+      <nav
+        className="w-full flex items-center justify-between px-6 h-[45px] sm:h-[60px] lg:h-[90px]"
+        role="navigation"
+        aria-label="Menú principal"
+      >
         {/* HAMBURGUESA SOLO EN MOVIL/TABLET */}
         <button
           aria-label="Abrir menú"
@@ -20,7 +27,8 @@ function NavigationBar() {
         >
           <img
             src={menuIcon}
-            alt="Menú"
+            alt=""
+            aria-hidden="true"
             className="h-5 w-5 sm:h-10 sm:w-10 lg:h-10 lg:w-10"
           />
         </button>
@@ -69,6 +77,8 @@ function NavigationBar() {
       {/* MENÚ MÓVIL / TABLET */}
       <nav
         id="mobile-menu"
+        role="navigation"
+        aria-label="Menú móvil"
         className={`${
           open ? "block" : "hidden"
         } lg:hidden bg-[#0C3C34] px-6 py-4`}

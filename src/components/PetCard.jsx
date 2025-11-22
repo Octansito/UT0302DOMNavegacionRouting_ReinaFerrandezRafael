@@ -4,7 +4,7 @@ import favorito from "../assets/favorito.svg";
 import favoritoRed from "../assets/favorito-red.svg";
 
 /**
- * Tarjeta individual del catálogo
+ * Componente que conforma la tarjeta individual del catálogo
  */
 function PetCard({
   id,
@@ -13,7 +13,7 @@ function PetCard({
   edad,
   imagen,
   ubicacion,
-  tamano,
+  tamaño,
   chip,
   numChip,
   descripcion,
@@ -33,22 +33,28 @@ function PetCard({
     edad,
     imagen,
     raza,
-    tamano,
+    tamaño,
     chip,
     numChip,
     ubicacion,
     descripcion,
   };
   return (
-    <article className="bg-white rounded-xl shadow-md max-w-[240px] w-full p-2">
+    <article
+      aria-labelledby={`titulo-${id}`}
+      className="bg-white rounded-xl shadow-md max-w-[240px] w-full p-2"
+    >
       <Link to={`/fichas`} state={animalData}>
         <img
           src={imagen}
-          alt={nombre}
+          alt={`Foto de ${nombre}`}
           className="w-full h-[140px] object-cover rounded-lg"
         />
 
-        <h3 className="font-poppins font-bold text-[18px] text-[#333] mt-2">
+        <h3
+          id={`titulo-${id}`}
+          className="font-poppins font-bold text-[18px] text-[#333] mt-2"
+        >
           {nombre}
         </h3>
 
@@ -60,6 +66,7 @@ function PetCard({
       <Link
         to={`/fichas`}
         state={animalData}
+        aria-label={`Ver ficha completa de ${nombre}`}
         className="mt-2 inline-block bg-[#FF9800] border border-black rounded-lg px-2 py-[4px] text-black font-semibold hover:bg-[#F57C00]"
       >
         Ver ficha
@@ -68,13 +75,15 @@ function PetCard({
       {/* Botón Favorito */}
       <button
         type="button"
+        aria-pressed={esFavorito}
         onClick={() => setEsFavorito(!esFavorito)}
-        className="ml-2 bg-transparent border-none p-0"
+        className="ml-2 bg-transparent border-none p-0 focus:outline-none"
         aria-label={esFavorito ? "Quitar de favoritos" : "Marcar como favorito"}
       >
         <img
           src={esFavorito ? favoritoRed : favorito}
           alt=""
+          aria-hidden="true"
           className="w-6 h-6 cursor-pointer transition"
         />
       </button>

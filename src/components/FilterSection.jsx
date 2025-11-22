@@ -31,10 +31,15 @@ function FilterSection() {
 
   return (
     <section aria-label="Filtros de búsqueda">
-      <div className="mb-6">
-        <h2 className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]">
+      {/* Especie */}
+      <fieldset className="mb-6" aria-labelledby="filtro-especie">
+        <legend
+          id="filtro-especie"
+          className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]"
+        >
           Especie
-        </h2>
+        </legend>
+
         <Checkbox
           label="Perro"
           checked={perro}
@@ -46,12 +51,17 @@ function FilterSection() {
           checked={adoptados}
           onChange={() => setAdoptados(!adoptados)}
         />
-      </div>
+      </fieldset>
 
-      <div className="mb-6">
-        <h2 className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]">
+      {/* Edad */}
+      <fieldset className="mb-6" aria-labelledby="filtro-edad">
+        <legend
+          id="filtro-edad"
+          className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]"
+        >
           Edad
-        </h2>
+        </legend>
+
         <Checkbox
           label="1-3 años"
           checked={edad1}
@@ -67,27 +77,37 @@ function FilterSection() {
           checked={edad3}
           onChange={() => setEdad3(!edad3)}
         />
-      </div>
+      </fieldset>
 
-      <div className="mb-6">
-        <h2 className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]">
+      {/* Tamaño */}
+      <fieldset className="mb-6" aria-labelledby="filtro-tamano">
+        <legend
+          id="filtro-tamano"
+          className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]"
+        >
           Tamaño
-        </h2>
+        </legend>
+
         <Checkbox label="Pequeño" checked={peq} onChange={() => setPeq(!peq)} />
         <Checkbox label="Mediano" checked={med} onChange={() => setMed(!med)} />
         <Checkbox label="Grande" checked={gra} onChange={() => setGra(!gra)} />
-      </div>
+      </fieldset>
 
-      <div className="mb-6">
-        <h2 className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]">
+      {/* Favoritos */}
+      <fieldset className="mb-6" aria-labelledby="filtro-favoritos">
+        <legend
+          id="filtro-favoritos"
+          className="font-poppins font-semibold text-[24px] mb-2 text-[#000000]"
+        >
           Favoritos
-        </h2>
+        </legend>
+
         <Checkbox
           label="Favoritos"
           checked={favoritos}
           onChange={() => setFavoritos(!favoritos)}
         />
-      </div>
+      </fieldset>
     </section>
   );
 }

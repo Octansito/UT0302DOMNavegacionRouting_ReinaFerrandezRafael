@@ -356,8 +356,9 @@ const animales = {
       nombre: "Magdalena",
       genero: "Hembra",
       edad: "1 año",
-      imagen: "https://protectorabaix.org/ficha-4446",
-      bicacion: "Calle La Higuera, zona residencial",
+      imagen:
+        "https://protectorabaix.org/imas/animales/_4096/a_40961726503304.jpg",
+      ubicacion: "Calle La Higuera, zona residencial",
       tamaño: "Mediano",
       chip: "Sí",
       numChip: "ES6B-27QL-5H11",

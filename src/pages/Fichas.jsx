@@ -20,28 +20,34 @@ function Fichas() {
   if (!animal) {
     return (
       <Contenedor>
-        <div className="text-center py-20">
+        <main
+          role="main"
+          aria-label="Ficha no encontrada"
+          className="text-center py-20"
+        >
           <h1 className="text-3xl font-bold text-red-600">
             No se encontró la ficha del animal
           </h1>
-        </div>
+        </main>
       </Contenedor>
     );
   }
   return (
     <Contenedor>
       <main
-        aria-label="Contenido principal"
+        role="main"
+        aria-label="Ficha del animal"
         className="flex flex-col lg:flex-row items-center lg:items-start gap-30"
       >
         {/**Columna izq --> imagen */}
         <section
-          aria-label="ImagenFicha"
+          aria-label="Imagen del Animal"
           className="ml-100px w-full lg:w-[500px] flex justify-center"
         >
           <figure className="w-full h-full">
             <img
               src={animal.imagen}
+              alt={`Imagen de ${animal.nombre}`}
               className="w-full h-full object-cover mb-[30px] mt-[30px] rounded-xl border-4 border-[#0E6149] shadow-lg"
             />
           </figure>
@@ -49,7 +55,7 @@ function Fichas() {
 
         {/**Columna der --> datos */}
         <section
-          aria-label="InformacionAnimal"
+          aria-label="Informacion del Animal"
           className="flex-1 mt-[30px] gap-3 flex flex-col"
         >
           <header className="grid grid-cols-[3fr_1fr] items-start">
@@ -68,6 +74,7 @@ function Fichas() {
               <Link
                 to="/catalogo"
                 className="bg-[#E0E0E0] border border-black rounded-lg px-4 py-1 text-black font-semibold hover:bg-[#D5D5D5]"
+                aria-label="Volver al catálogo"
               >
                 Volver
               </Link>
@@ -75,7 +82,10 @@ function Fichas() {
           </header>
 
           {/**Lista de datos */}
-          <ul className="text-xl text-[25px] text-[#000000] font-nunito space-y-1 flex flex-col gap-2">
+          <ul
+            aria-label="Datos del animal"
+            className="text-xl text-[25px] text-[#000000] font-nunito space-y-1 flex flex-col gap-2"
+          >
             <li>
               <b>Edad:</b> {animal.edad}
             </li>
@@ -98,7 +108,10 @@ function Fichas() {
             </li>
           </ul>
           {/* Descripción */}
-          <article className="border border-[#006E4F] bg-[#B1E9DE] rounded-xl p-4 mt-6">
+          <article
+            aria-label="Descripción del animal"
+            className="border border-[#006E4F] bg-[#B1E9DE] rounded-xl p-4 mt-6"
+          >
             <h3 className="font-poppins font-semibold text-2xl text-[#000000] mb-2">
               Descripción:
             </h3>
@@ -108,7 +121,7 @@ function Fichas() {
           </article>
           {/** Sección botones */}
           <section
-            aria-label="Acciones del animal"
+            aria-label="Acciones disponibles"
             className="flex items-center gap-4 mt-6"
           >
             <button className="mt-2 inline-block bg-[#FF9800] border border-black rounded-lg px-2 py-[4px] text-black font-semibold hover:bg-[#F57C00]">
@@ -126,6 +139,7 @@ function Fichas() {
               <img
                 src={esFavorito ? favoritoRed : favorito}
                 alt=""
+                aria-hidden="true"
                 className="w-6 h-6 cursor-pointer transition"
               />
             </button>
